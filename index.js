@@ -460,8 +460,15 @@ client.on(Events.InteractionCreate, async (interaction) => {
 // ═══════════════════════════════════════════════════════════
 //  EVENTS
 // ═══════════════════════════════════════════════════════════
-
 client.once(Events.ClientReady, () => {
+
+  for (const guild of client.guilds.cache.values()) {
+    db.prepare(`
+      INSERT OR IGNORE INTO guild_settings (guild_id)
+      VALUES (?)
+    `).run(BigInt(guild.id));
+  }
+
   console.log(
     `[BOT] ✅ ${client.user.tag} connected — ${client.guilds.cache.size} guild(s)`,
   );
