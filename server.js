@@ -1,9 +1,15 @@
 const express = require("express");
+const db = require("./db");
 
 const app = express();
 
 app.get("/", (req, res) => {
-  res.send("لوحة التحكم تعمل ✅");
+  const guilds = db.prepare("SELECT * FROM guild_settings").all();
+
+  res.send(`
+    <h1>🎉 لوحة التحكم</h1>
+    <p>عدد السيرفرات المسجلة: ${guilds.length}</p>
+  `);
 });
 
 const PORT = process.env.PORT || 3000;
