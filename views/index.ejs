@@ -1,11 +1,53 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <title>لوحة التحكم</title>
+<meta charset="UTF-8">
+<title>Boredom Bot Dashboard</title>
+
+<style>
+body{
+    background:#1e1f22;
+    color:white;
+    font-family:Arial;
+    padding:30px;
+}
+.card{
+    background:#2b2d31;
+    padding:20px;
+    border-radius:12px;
+    margin-bottom:15px;
+}
+button{
+    background:#5865F2;
+    color:white;
+    border:none;
+    padding:10px 18px;
+    border-radius:8px;
+    cursor:pointer;
+}
+button:hover{
+    background:#4752c4;
+}
+</style>
+
 </head>
 <body>
-    <h1>🎉 لوحة تحكم Boredom Bot</h1>
-    <p>عدد السيرفرات: <%= guilds.length %></p>
+
+<h1>🎉 لوحة تحكم Boredom Bot</h1>
+
+<p>عدد السيرفرات: <b><%= guilds.length %></b></p>
+
+<% guilds.forEach(guild=>{ %>
+
+<div class="card">
+
+<h2>🖥️ <%= guild.guild_id %></h2>
+
+<button>فتح لوحة التحكم</button>
+
+</div>
+
+<% }) %>
+
 </body>
 </html>
