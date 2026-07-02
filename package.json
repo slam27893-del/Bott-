@@ -4,7 +4,7 @@
   "description": "Discord leveling bot with Arabic support",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node start.js"
   },
   "dependencies": {
     "better-sqlite3": "^11.5.0",
@@ -14,7 +14,7 @@
     "express": "^4.21.2",
     "express-session": "^1.18.1",
     "passport": "^0.7.0",
-    "passport-discord": "^0.1.4"
+    "passport-discord": "^0.1.4",
+    "pg": "^8.13.1"
   }
 }
-"pg": "^8.13.1"
